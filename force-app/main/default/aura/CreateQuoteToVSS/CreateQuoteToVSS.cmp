@@ -1,0 +1,12 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" controller="CL_CreateQuoteVSSController">
+    <aura:handler name="init" action="{!c.init}" value="{!this}" />
+    <aura:attribute name="oppCtrl" type="CL_OpportunityController"/>
+    <aura:IF isTrue="{!(v.oppCtrl.opp.AnkenShonin__c)}">
+        {!$Label.c.AP00_MSG_0002}<br />
+        <br />
+    	<lightning:button name="myButton" label="{!$Label.c.AP00_MSG_0001}" onclick="{!c.send}"/>
+    </aura:IF>
+    <aura:IF isTrue="{!(!v.oppCtrl.opp.AnkenShonin__c)}">
+    	{!$Label.c.AP00_MSG_0003}
+    </aura:IF>
+</aura:component>
